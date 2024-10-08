@@ -1,0 +1,36 @@
+Problem Statement:
+        Find the First Non-Repeating Character
+        Write a program to find the first non-repeating character in a string.
+        For input "swiss", the output should be "w". You cannot use any built-in string or character frequency counting functions. 
+         Instructions: Implement manual string traversal and counting logic to solve the problem.
+
+Java Script Code:
+            function findFirstUniqueChar(inputString) {
+           let charFrequency = {}; // Object to track frequency of characters
+           let stringLength = inputString.length;
+          // First Thing: Calculate character frequencies
+         for (let i = 0; i < stringLength; i++) {
+            let currentChar = inputString[i];
+            if (charFrequency[currentChar] !== undefined) {
+            charFrequency[currentChar] += 1;
+              } else {
+                charFrequency[currentChar] = 1;
+           }
+        }
+           // Second Thing: Identify the first unique character
+             for (let i = 0; i < stringLength; i++) {
+             let currentChar = inputString[i];
+               if (charFrequency[currentChar] === 1) {
+              return currentChar; // Return the first unique character
+         }
+     }
+
+    return null; // Return null if no unique character is found
+}
+console.log(findFirstUniqueChar("swiss")); 
+console.log(findFirstUniqueChar("apple")); 
+console.log(findFirstUniqueChar("aabbc")); 
+Output:
+     1.w
+     2.a
+     3.c
